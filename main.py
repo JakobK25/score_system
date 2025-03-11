@@ -2,7 +2,6 @@ import psycopg2
 import pyfirmata
 import time
 
-
 ## Setup for Arduino
 port = 'COM3'
 board = pyfirmata.Arduino(port)
@@ -21,7 +20,6 @@ cursor.execute("INSERT INTO public.score (tid, stilling, team) VALUES ('77', '24
 
 connection.commit()
 
-cursor.execute("SELECT * FROM score;")
 record = cursor.fetchall()
 print("Data from Database:- ", record)
 print(len(record), "rows returned")
