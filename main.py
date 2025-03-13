@@ -29,6 +29,8 @@ for i in range(10):
     db.execute("INSERT INTO score_system.scoretb (time, score) VALUES (%s, %s)", (timestamp, score))
     connection.commit()
     
+    print("Data inserted: ", timestamp, score)
+
     delay = random.randint(1, 5)
     time.sleep(delay)
 
