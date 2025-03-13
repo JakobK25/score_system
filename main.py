@@ -6,10 +6,16 @@ import time
 port = 'COM3'
 board = pyfirmata.Arduino(port)
 
-button = board.get_pin('d:2:i')
+buttonPin = board.get_pin('a:0:i')
 
 it = pyfirmata.util.Iterator(board)
 it.start()
+
+## Arduino loop
+while True:
+    buttonPinInput = buttonPin.read()
+    print(buttonPinInput)
+    time.sleep(1)
 
 ## Setup for database
 connection = psycopg2.connect(database="score_system", user="postgres", password="password", host="127.0.0.1", port=5432)
